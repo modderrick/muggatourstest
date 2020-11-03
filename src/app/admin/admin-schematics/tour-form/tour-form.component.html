@@ -1,0 +1,270 @@
+<form [formGroup] = "tourForm" (ngSubmit)="onSubmit()" #tourFormRef>
+    <mat-tab-group color="primary" backgroundColor="accent">
+        <mat-tab label="General">
+            <div fxLayout="row" fxLayoutGap="20px" class="input-container">
+                <label fxFlex="20" fxFlexAlign="end">tour name</label>
+                <input fxFlex="70" type="text" formControlName="tourName" >
+            </div>
+            <div fxLayout="row" fxLayoutGap="20px" class="input-container">
+                <label fxFlex="20" >Description</label>
+                <input fxFlex="70" type="text" formControlName="description" >
+            </div>
+            <div fxLayout="row" fxLayoutGap="20px" class="input-container">
+                <label fxFlex="20" >price</label>
+                <input fxFlex="70" type="text" formControlName="price" >
+            </div>
+            <div fxLayout="row" fxLayoutGap="20px" class="input-container">
+                <label fxFlex="20" >discount</label>
+                <input fxFlex="70" type="text" formControlName="discount" >
+            </div>
+            <div fxLayout="row" fxLayoutGap="20px" class="input-container">
+                <label fxFlex="20" >duration</label>
+                <input fxFlex="70" type="text" formControlName="duration" >
+            </div>
+            <div fxLayout="row" fxLayoutGap="20px" class="input-container">
+                <label fxFlex="20">status</label>
+                <select fxFlex="70" formControlName="status">
+                    <option value="1">Enabled</option>
+                    <option value="0">Disabled</option>
+                </select>
+            </div>
+        </mat-tab>
+        <mat-tab label="Links" >
+            <div fxLayout="row" fxLayoutGap="20px" class="input-container">
+                <label fxFlex="20">category</label>
+                <select fxFlex="70" formControlName="category">
+                    <option value="1">category one</option>
+                    <option value="0">category two</option>
+                </select>
+            </div>
+            <div fxLayout="row" fxLayoutGap="20px" class="input-container">
+                <label fxFlex="20">Destination</label>
+                <select fxFlex="70" formControlName="destination">
+                    <option value="1">Mbarara</option>
+                    <option value="2">Kampala</option>
+                </select>
+            </div>
+            <div fxLayout="row" fxLayoutGap="20px" class="input-container">
+                <label fxFlex="20">Select Related</label>
+                <div fxLayout="row" fxFlex="70%" >
+                    <table class="form-table" formArrayName="related">
+                        <thead>
+                            <th></th>
+                            <th><button type="button" mat-raised-button (click)="addRelated()">Add more</button></th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let rer of relatedArray().controls; let i=index" [formGroupName]="i">
+                                <td class="control-td" >
+                                    <select formControlName="relatedId" >
+                                        <option value="1">related one</option>
+                                        <option value="0">related two</option>
+                                    </select>
+                                </td>
+                                <td class="action-td">
+                                    <button type="button" mat-raised-button (click)="removeRelated(i)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div> 
+            <div fxLayout="row" fxLayoutGap="20px" class="input-container">
+                <label fxFlex="20" >tour tags</label>
+                <div fxLayout="row" fxFlex="70%" >
+                    <table class="form-table" formArrayName="tags">
+                        <thead>
+                            <th></th>
+                            <th><button type="button" mat-raised-button (click)="addTag()">Add more</button></th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let tag of tagArray().controls; let i=index" [formGroupName]="i">
+                                <td class="control-td" >
+                                    <input  type="hidden" formControlName="tagId" >
+                                    <input  type="text" formControlName="tagName" >
+                                </td>
+                                <td class="action-td">
+                                    <button type="button" mat-raised-button (click)="removeTag(i)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Program">
+            <div fxLayout="row" fxLayoutGap="20px" class="input-container p-2">
+                <label fxFlex="20" >tour program</label>
+                <div fxLayout="row" fxFlex="70%" >
+                    <table class="form-table" formArrayName="programs">
+                        <tbody>
+                            <tr class="outer-tr" *ngFor="let program of programArray().controls; let i=index" [formGroupName]="i">
+                                <td class="control-td special-td" >
+                                    <tr>
+                                        <td>
+                                            <div fxFlex="20" class="custom-file">
+                                                <input (change)="preview($event,i)" id="image-{{i}}"  type="file" accept="image/*" formControlName="programAvator" >
+                                                <label for="image-{{i}}">
+                                                    <img width="85" height="85" [src]="imageSrc[i] || '../../../../assets/icons/no_image.png'" />
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td> 
+                                            <input type="hidden" formControlName="programId" >
+                                            <input type="text" formControlName="programName" placeholder="program name" >
+                                        </td>
+                                        <td> 
+                                            <input type="text" formControlName="programTime"  placeholder="program time" >
+                                        </td>   
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3"> 
+                                            <textarea formControlName="programDesc" placeholder="description ..."></textarea>                   
+                                        </td>              
+                                    </tr>                                 
+                                </td>                             
+                                <td class="action-td">
+                                    <button type="button" mat-raised-button (click)="removeProgram(i)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" style="text-align: end;">
+                                    <button type="button" mat-raised-button (click)="addProgram()">Add more</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>       
+        </mat-tab>
+        <mat-tab label="Questions">
+            <div fxLayout="row" fxLayoutGap="20px" class="input-container p-2">
+                <label fxFlex="20" >tour questions</label>
+                <div class="container-fluid" formArrayName="questions" >
+                    <div class="row justify-content-end">
+                        <div class="col-12">
+                            <div class="row" *ngFor="let question of questionArray().controls; let i=index" [formGroupName]="i">
+                                <div class="col-10">
+                                    <div class="row mb-2">
+                                        <div class="col-12 mb-1">    
+                                            <input type="hidden" formControlName="questionId" >
+                                            <input type="text" formControlName="question" placeholder="question" >     
+                                        </div>
+                                        <div class="col-12"> 
+                                            <input type="text" formControlName="answer" placeholder="answer" >
+                                        </div>
+                                    </div>                           
+                                </div>  
+                                <div class="col-2">
+                                    <button type="button" mat-raised-button (click)="removeQuestion(i)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="col-2">     
+                            <button type="button" mat-raised-button (click)="addQuestion()">Add more</button>
+                        </div>
+                    </div>                                                  
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Insights">
+            <div fxLayout="row" fxLayoutGap="20px" class="input-container p-2">
+                <label fxFlex="20" >tour insights</label>
+                <div class="container-fluid" formArrayName="insights" >
+                    <div class="row justify-content-end">
+                        <div class="col-12">
+                            <div class="row" *ngFor="let insight of insightArray().controls; let i=index" [formGroupName]="i">
+                                <div class="col-10">
+                                    <div class="row mb-2">
+                                        <div class="col-12 mb-1">    
+                                            <input type="hidden" formControlName="insightId" >
+                                            <input type="text" formControlName="questionName" placeholder="tour insight" >     
+                                        </div>
+                                        <div class="col-12"> 
+                                            <textarea formControlName="insightDesc" placeholder="insight description"></textarea>
+                                        </div>
+                                    </div>                           
+                                </div>  
+                                <div class="col-2">
+                                    <button type="button" mat-raised-button (click)="removeInsight(i)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="col-2">     
+                            <button type="button" mat-raised-button (click)="addInsight()">Add more</button>
+                        </div>
+                    </div>                                                  
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Inclusions">
+            <div fxLayout="row" fxLayoutGap="20px" class="input-container p-2">
+                <label fxFlex="20" >tour inclusions</label>
+                <div class="container-fluid" formArrayName="inclusions" >
+                    <div class="row justify-content-end">
+                        <div class="col-12">
+                            <div class="row" *ngFor="let inclusion of inclusionArray().controls; let i=index" [formGroupName]="i">
+                                <div class="col-10">
+                                    <div class="row mb-2">
+                                        <div class="col-12 mb-1">    
+                                            <input type="hidden" formControlName="inclusionId" >
+                                            <input type="text" formControlName="inclusionName" placeholder="tour inclusion" >     
+                                        </div>
+                                        <div class="col-12"> 
+                                            <textarea formControlName="inclusionDesc" placeholder="inclusion description"></textarea>
+                                        </div>
+                                    </div>                           
+                                </div>  
+                                <div class="col-2">
+                                    <button type="button" mat-raised-button (click)="removeInclusion(i)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="col-2">     
+                            <button type="button" mat-raised-button (click)="addInclusion()">Add more</button>
+                        </div>
+                    </div>                                                  
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Images">
+            <div fxLayout="row" fxLayoutGap="20px" class="input-container p-2">
+                <label fxFlex="20" >tour images</label>
+                <div class="container-fluid" formArrayName="images" >
+                    <div class="row p-2 border align-items-center " *ngFor="let image of imageArray().controls; let i=index" [formGroupName]="i">
+                        <div class="col-10 align-middle">  
+                            <div class="custom-file">
+                                <input (change)="tourImgPreview($event,i)" id="image-{{i}}"  type="file" accept="image/*" formControlName="imagePath" >
+                                <label for="image-{{i}}">
+                                    <img  width="85" height="85" [src]="tourImg[i] || '../../../../assets/icons/no_image.png'" />
+                                </label>
+                            </div> 
+                        </div>
+                        <div class="col-2">
+                            <button type="button" mat-raised-button (click)="removeImage(i)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div> 
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="col-2">     
+                            <button type="button" mat-raised-button (click)="addImage()">Add more</button>
+                        </div>
+                    </div>                                                  
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+  <button type="submit" hidden id="{{formId}}"  mat-raised-button >save</button>
+</form> 

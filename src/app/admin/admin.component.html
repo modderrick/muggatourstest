@@ -1,0 +1,81 @@
+<section class="admin-main">
+    <div class="admin-nav">
+        <div class="menu-header">
+            <img fxHide.lt-md
+                width="40"
+                alt="Angular Logo"
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+            />
+            <h2 fxHide.lt-md>mugga tours</h2>
+            <button fxHide fxShow.lt-md mat-icon-button (click)="toggle()">
+                <mat-icon  style="font-size: 60px;">menu</mat-icon>
+            </button>
+          
+           
+        </div>
+        <div class="content-header spacer-2">
+            <div class="spacer-2">  {{isMenuOpen ? 'open':'close'}}</div>
+            <div class="profile">
+                <img class="profile-pic"  src="../../assets/profile/profile_2.jpg" />
+                <!-- This button triggers the overlay and is it's origin -->
+                <button (click)="isOpen = !isOpen" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+                    {{isOpen ? "Close" : "Open"}}
+                </button>
+                
+                <!-- This template displays the overlay content and is connected to the button -->
+                <ng-template cdkConnectedOverlay
+                    [cdkConnectedOverlayOrigin]="trigger"
+                    [cdkConnectedOverlayOpen]="isOpen">
+                    <ul class="dropdown-menu">
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+    <section fxLayout="row" class="admin-content">
+        <section 
+        
+           
+           
+            
+            [ngClass.lt-sm]="{'side-menu-lt-sm':true,'side-menu':false}" 
+            [ngClass.lt-md]="{'side-menu-lt-md':true,'side-menu':false}" 
+            class="side-menu"
+            >
+            <div class="menu-items">
+                <cdk-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                    <!-- This is the tree node template for leaf nodes -->
+                    <cdk-tree-node *cdkTreeNodeDef="let node" cdkTreeNodePadding
+                        [style.display]="shouldRender(node) ? 'flex' : 'none'"
+                        class="example-tree-node">
+                    <!-- use a disabled button to provide padding for tree leaf -->
+                    <a routerLink="{{node.link}}" mat-icon-button> {{node.name}}</a>
+                
+                    </cdk-tree-node>
+                    <!-- This is the tree node template for expandable nodes -->
+                    <cdk-tree-node *cdkTreeNodeDef="let node; when: hasChild"  cdkTreeNodePadding
+                        [style.display]="shouldRender(node) ? 'flex' : 'none'"
+                        class="example-tree-node">
+                        <button mat-icon-button cdkTreeNodeToggle
+                            [attr.aria-label]="'Toggle ' + node.name"
+                            (click)="node.isExpanded = !node.isExpanded"
+                            [style.visibility]="node.expandable ? 'visible' : 'hidden'">
+                            {{node.name}}
+                            <mat-icon class="mat-icon-rtl-mirror">
+                            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                            </mat-icon>
+                    </button>
+                    
+                    </cdk-tree-node>
+                </cdk-tree>
+            </div>
+        </section>
+        <section fxFlex="80" fxFlex.lt-md="100" [ngClass.lt-md]="{'main-content-lt-md':true,'main-content':false}" class="main-content">      
+            <router-outlet></router-outlet>
+        </section>
+    </section>
+</section>
+

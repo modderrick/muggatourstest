@@ -1,0 +1,27 @@
+<form [formGroup] = "categoryForm">
+    <div fxLayout="row" fxLayoutGap="20px" class="input-container">
+        <label fxFlex="20" fxFlexAlign="end">Category Name</label>
+        <input fxFlex="70" type="text" formControlName="categoryName" >
+    </div>
+    <div fxLayout="row" fxLayoutGap="20px" class="input-container">
+        <label fxFlex="20" >Description</label>
+        <input fxFlex="70" type="text" formControlName="description" >
+    </div>
+    <div fxLayout="row" fxLayoutGap="20px" class="input-container">
+        <label fxFlex="20" >image</label>
+        <div fxFlex="20" class="custom-file">
+            <input (change)="preview($event)" id="image"  type="file" accept="image/*" formControlName="image" >
+            <label for="image">
+                <img width="85" height="85" [src]="imageSrc || '../../../../assets/icons/no_image.png'" />
+            </label>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="20px" class="input-container">
+        <label fxFlex="20">status</label>
+        <select fxFlex="70" formControlName="status">
+            <option value="1">Enabled</option>
+            <option value="0">Disabled</option>
+        </select>
+    </div>
+</form>
+

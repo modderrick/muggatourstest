@@ -1,0 +1,47 @@
+<form [formGroup] = "destinationForm" (ngSubmit)="onSubmit()" #destinationFormRef>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4 text-right align-self-center">
+                <label for="dest-name">Destination Name</label>
+            </div>
+            <div class="col-8 mb-2">
+                <input id="dest-name" type="text" formControlName="destinationName" >
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 text-right align-self-center align-middle">
+                <label>Destination image</label>
+            </div>
+            <div class="col-8 mb-2">
+                <div class="custom-file">
+                    <input (change)="preview($event)" id="dest-image"  type="file" accept="image/*" formControlName="image" >
+                    <label for="dest-image">
+                        <img width="85" height="85" [src]="imageSrc || '../../../../assets/icons/no_image.png'" />
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 text-right align-self-center">
+                <label for="dest-desc">Destination description</label>
+            </div>
+            <div class="col-8 mb-2">
+                <textarea id="dest-desc" formControlName="description" ></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 text-right align-self-center">
+                <label for="dest-status">Destination status</label>
+            </div>
+            <div class="col-8 mb-2">
+                <select fxFlex="70" formControlName="status">
+                    <option value="1">Enabled</option>
+                    <option value="0">Disabled</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <button type="submit" id="{{formId}}" hidden>save</button>
+</form>
+
+

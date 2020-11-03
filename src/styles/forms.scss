@@ -1,0 +1,80 @@
+.input-container:not(:last-child){
+    border-bottom: 1px solid rgb(172, 172, 172);
+}
+.input-container:not(:first-child), .input-container:not(:last-child){
+    padding: 20px 0px;
+}
+
+.input-container, .group-container{
+    max-width: 100%;
+    label{
+        text-align: right;
+        vertical-align: middle;
+        text-transform: capitalize;
+    }
+    input[type=text],select,textarea{
+        vertical-align: middle;
+        padding: 6px 6px;
+        border: 1px solid  rgb(155, 155, 155);
+        border-radius: 4px;
+        background-color: rgb(252, 252, 252);
+        width: 100%;
+    }
+    input:hover,select:hover{
+        box-shadow: 1px 1px 1px 0px rgb(189, 189, 189), -1px -1px 1px 0px rgb(189, 189, 189);
+    }
+    input[type=file]{
+        display: none;
+    }
+    .custom-file{
+        width: 90px;
+        height: 90px;
+        label{
+            border: 1px solid  rgb(155, 155, 155);
+            width: 90px;
+            height: 90px;
+            padding: 2px;
+            border-radius: 4px;
+        }
+        label:hover{
+            cursor: pointer;
+            box-shadow: 1px 1px 1px 0px rgb(189, 189, 189), -1px -1px 1px 0px rgb(189, 189, 189);
+        }
+    }
+  
+}
+form{
+    .container-fluid{
+        input[type=text],select,textarea{
+            vertical-align: middle;
+            padding: 6px 6px;
+            border: 1px solid  rgb(155, 155, 155);
+            border-radius: 4px;
+            background-color: rgb(252, 252, 252);
+            width: 100%;
+        }
+        input:hover,select:hover{
+            box-shadow: 1px 1px 1px 0px rgb(189, 189, 189), -1px -1px 1px 0px rgb(189, 189, 189);
+        }
+        input[type=file]{
+            display: none;
+        }
+        .custom-file{
+            width: 90px;
+            height: 90px;
+            label{
+                border: 1px solid  rgb(155, 155, 155);
+                width: 90px;
+                height: 90px;
+                padding: 2px;
+                border-radius: 4px;
+            }
+            label:hover{
+                cursor: pointer;
+                box-shadow: 1px 1px 1px 0px rgb(189, 189, 189), -1px -1px 1px 0px rgb(189, 189, 189);
+            }
+        }
+
+    }
+}
+

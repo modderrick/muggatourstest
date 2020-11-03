@@ -1,0 +1,26 @@
+// dynamic related products
+	relatedArray(){
+		return this.tourForm.get("related") as FormArray
+	}
+	addRelated(){
+		this.relatedArray().push(
+			(this.fb.group({relatedId: ['']})) as FormGroup)
+	}
+
+	removeRelated(i: number){
+		this.relatedArray().removeAt(i)
+	}
+
+	//dynamic product tags
+	tagArray(){
+		return this.tourForm.get("tag") as FormArray
+	}
+
+	addTag(){
+		this.tagArray().push(
+			(this.fb.group({tagId: [''],tagName:['']})) as FormGroup)
+	}
+
+	removeTag(i: number){
+		this.tagArray().removeAt(i)
+	}

@@ -1,0 +1,35 @@
+<div class="table-responsive">
+	<table class="table table-bordered table-hover">
+		<thead class="thead-light">
+			<th>
+				<mat-checkbox value="" color="primary"></mat-checkbox>
+			</th>
+            <th>name</th>
+			<th>image</th>
+			<th>destination</th>
+			<th>price</th>
+			<th>discount</th>
+			<th>duration</th>
+			<th>status</th>
+			<th>Actions</th>
+		</thead>
+		<tbody>
+			<tr *ngFor="let item of tours">
+				<td><mat-checkbox value="" color="primary"></mat-checkbox></td>
+				<td>{{item.name}}</td>
+                <td>{{item.image}}</td>
+                <td>{{item.destination}}</td>
+				<td>${{item.price}}</td>
+				<td>{{item.discount}}% off</td>
+				<td>{{item.duration}} days</td>
+				<td>
+					{{item.status}}
+				</td>
+				<td>
+					<button mat-icon-button color="primary"><mat-icon>create</mat-icon></button>
+					<button mat-icon-button color="primary" (click)= "deleteTour(item)"><mat-icon>delete</mat-icon></button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,326 @@
+@import "../../../global-scss.scss";
+
+.main-content{
+    padding: 10% 0px 0px 0px;
+    background-color: $color-black;
+    color: $color-white;
+}
+
+.search-tours{  
+    h1{
+        font-size: $size-2rem;
+        margin-left: 5%;
+    }
+    & > mat-card{
+        width: 90%;
+        margin: 2% auto;
+        border-radius: $size-20px;
+        padding: 2% 10px;
+        mat-form-field{
+            width: 18.5%;
+        } 
+        button{
+            background-color: $color-orange-bright;
+            color: $color-white;
+            margin-left: 10px;
+            margin-bottom: 8px;
+            vertical-align: middle;
+            outline: none;
+        }    
+        
+    }
+       
+    
+ 
+   
+    & > div{
+        margin: 0px 10px;
+        .swiper-container{
+            height: auto;
+            .swiper-wrapper{              
+                padding-bottom: 10px 10px;
+            }
+            mat-card{
+                background-color: $color-white;
+                padding: 0px;
+                border-radius: 20px;              
+                outline: none;
+                img{
+                    border-radius: 20px;
+                    margin: 0px;
+                }  
+                div{
+                    display: $display-flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: rgba(0, 0, 0, 0);
+                    position: absolute;
+                    top: 0px;
+                    height: inherit;
+                    width: inherit;
+                    text-align: center;
+                    color: $color-white;
+                    vertical-align: middle;
+                    border-radius: 20px;
+                    
+                }
+            }     
+        }
+    }   
+    
+}
+
+.tour-content{
+    display: flex;
+    padding: 10px 100px;
+ 
+
+    & > div:first-child{  
+        color: $color-white;
+        width: 60%;
+        mat-card{
+            padding: 0px;
+            border-radius: 20px;
+            outline: none;
+            margin-bottom: 20px;
+            img{
+                border-radius: 20px;
+                margin: 0px;
+            }          
+        
+            .card-overlay{
+                border-radius: 20px;
+                color: $color-white;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0px;
+                padding: 30px 50px;  
+                display: $display-flex;
+                flex-direction: column;
+                background-color: #00000062;
+                
+                .overlay-body{
+                    flex-grow: 1;
+                    .rating{
+                        margin-bottom: 16px;
+                        .reviews{
+                            margin-left: 4px;
+                            font-size: medium;
+                        }
+                    }
+                    .overlay-title{
+                        font-size: 2.5em;
+                        font-weight: bolder;               
+                        margin-bottom: 16px;
+                
+                    }
+                    .overlay-text{
+                        width: 80%;
+                        color: $color-white-blure-2;
+                        font-size: 1.5em;
+                        font-style: italic;
+                        line-height: 1.5em;
+                    }
+                }  
+                .overlay-footer{
+                    color: $color-white-blure-2;
+                    .icon-text{
+                        margin-bottom: 50px;
+                        font-size: 1.5em;
+                        margin-left: 4px;
+                    }
+                }           
+            } 
+        } 
+    } 
+   
+    .right-content{
+        display: $display-flex;
+        flex-direction: column;
+        width: 40%;
+        background-color: black;
+        margin-left: 30px;
+        border-radius: $size-20px;
+
+        .latest-tours{
+            background-color: $color-white;
+            width: 100%;    
+            padding: 20px 20px;   
+            border-radius: $size-20px;          
+            & > h3{
+                color: $color-black-light;
+                font-size: $size-1-5rem;
+                font-weight: bolder;
+            }
+            & > mat-card{
+                display: $display-flex;
+                padding: 0px;
+                margin-top: 20px;
+                border-radius: 20px;
+                img{
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 20px;
+                }
+                mat-card-content{
+                    margin-left: 20px;
+                    & > div{
+                        border: $test-border;
+                        display: $display-flex;
+                        flex-direction: column;
+                        align-self: flex-start;
+                        h3{
+                            border: $test-border;
+                            line-height: $size-1-5rem;
+                            margin: 0px;
+                        }
+                        & > h3{
+                            font-weight: bold;
+                            color: $color-black-light;
+                        }
+                        & > div:nth-child(2){
+                            display: $display-flex;
+                            padding-top: 8px;
+                            h3{
+                                color: $color-silver;
+                            }
+                            & > h3:first-child{
+                                color: $color-orangered;
+                                font-weight: bold;
+                                margin-right: $size-10px;
+                            }
+                            & > h3:last-child{
+                                text-decoration: line-through;
+                            }
+                        }
+                        & > div:nth-child(3){
+                            display: $display-flex;
+                            padding-top: 8px;
+                            h3{
+                                color: $color-silver;
+                                margin-left: 4px;
+                            }
+                        }
+                    }
+                }
+               
+            }
+        }
+        .tour-category{
+            width: 100%;
+            color: white;
+            background-color: rgba(0, 49, 95, 0.986);
+            padding: 20px 20px;   
+            border-radius: $size-20px; 
+            margin-top: 20px;
+            & >h3{
+                font-size: $size-1-5rem;
+                line-height: $size-1-5rem;
+                margin: 0px;
+                color: #fff;
+                font-size: $size-1-5rem;
+                font-weight: bolder;
+
+            }
+            ul{
+                margin: 0px;
+                padding: 0px;
+                list-style-type: none;
+                margin-top: 20px;
+                li{
+                    font-size: $size-1rem;
+                    font-weight: 550;
+                    line-height: $size-2rem;
+                }
+            }
+        }
+        .recent-articles{
+            margin-top: 20px;
+            background-color: $color-black;
+            width: 100%;    
+            padding: 20px 20px;   
+            border-radius: $size-20px;  
+            color: $color-white;   
+            border: 1px solid #fff;     
+            & > h3{
+                font-size: $size-1-5rem;
+                font-weight: bolder;
+            }
+            & > mat-card:not(:last-child){
+                border-bottom: .5px outset $color-white-blure-2;
+            }
+            & > mat-card{
+                display: $display-flex;
+                padding: 0px;
+                padding-bottom: 4px;
+                margin-top: 20px;
+                background-color: $color-black;
+                color: $color-white;
+               
+                img{
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 20px
+                }
+                mat-card-content{
+                    margin-left: 20px;
+                    & > div{
+                        border: $test-border;
+                        display: $display-flex;
+                        flex-direction: column;
+                        align-self: flex-start;
+                        h3{
+                            border: $test-border;
+                            line-height: $size-1-5rem;
+                            margin: 0px;
+                        }
+                        & > h3{
+                            font-weight: 400;
+                         
+                        }
+                       
+                        & > div:nth-child(2){
+                            display: $display-flex;
+                            padding-top: 8px;
+                            h3{
+                                color: $color-white-blure-2;
+                                margin-left: 4px;
+                            }
+                        }
+                    }
+                }
+               
+            }
+        }
+        .question{
+            width: 100%;
+            color: white;
+            background-color: $color-orangered;
+            padding: 20px 20px;   
+            border-radius: $size-20px; 
+            margin-top: 20px;
+            & >h3{
+                font-size: $size-1-5rem;
+                line-height: $size-1-5rem;
+                color: #fff;
+                font-size: $size-1-5rem;
+                font-weight: bolder;
+
+            }
+            & > p{
+                font-size: $size-18px;
+                font-weight: 500;
+                margin: 20px 0px;
+                line-height: $size-1-5rem;
+            }
+            & >h1{
+                font-size: $size-2rem;
+                margin-bottom: 60px;
+            }
+           
+        }
+
+
+    }         
+}

@@ -1,0 +1,65 @@
+<section class="main-content">
+    
+    <section class="tour-content">
+        <h1>Mugga Tours Blog</h1>
+        <div class="tour-wrapper">
+           
+        <div class="left-content">
+            <div *ngFor="let item of toursData">
+                <mat-card class="tour-card" >                       
+                    <img height="250px" width="100%"  src="../../../assets/images/tour/tour_{{item.id}}.jpg" />  
+                </mat-card>  
+                <h5>{{date|date}} | UNCATEGORIZED</h5>  
+                <h1>Pack wisely before travelling</h1>
+                <p>A wonderful serenity has taken possession of my 
+                    entire soul, like these sweet mornings of spring 
+                    which I enjoy with my whole heart.
+                </p>     
+            </div>
+        </div>
+        <div class="right-content">
+            <div class="article-categories">
+                <h3>Categories</h3>       
+                <ul>
+                    <li *ngFor="let item of articleCategories">
+                        <a href="#">{{item.title}}</a>
+                    </li>
+                </ul>     
+            </div>
+            <div class="question">
+                <h3>Got a Question</h3>
+                <p>
+                    Do not hesitage to give us a call. We are an expert team and we are happy to talk to
+                    you
+                </p>
+                <h1>+256 789 934 060</h1>
+                <h3>info@muggatours.com</h3>
+            </div>
+            <div class="latest-tours">
+                <h3>Latest Tours</h3>       
+                <mat-card *ngFor="let item of latestTourData">
+                    <img height="130px" width="100%"  src="../../assets/images/tour/tour_{{item.id}}.jpg" />
+                    <mat-card-content>
+                        <div class="tour-info">
+                            <h3>A tour of the islands</h3>
+                            <div class="tour-cost">
+                                <h3>$3,50000</h3>
+                                <h3>$3,800</h3>
+                            </div>
+                            <div>
+                                <mat-icon>schedule</mat-icon>
+                                <h3>7 days</h3>
+                            </div>
+                        </div>
+                    </mat-card-content>                  
+                </mat-card>        
+            </div>
+           
+           
+        </div>
+        </div>
+    </section>
+
+
+</section>
+

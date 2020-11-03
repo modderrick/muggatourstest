@@ -1,0 +1,160 @@
+<section class="main-content">
+    <section class="search-tours">    
+        <h1>Search Tours</h1>
+        <mat-card class="search-tours-form">
+            <div class="section-content">
+                <div class="input-set">
+                    <form [formGroup]="searchToureForm" class="search-tour-form" [style.fontSize.px]="16">                    
+                        <mat-form-field appearance="outline">
+                            <mat-label>Key word</mat-label>
+                            <input matInput type="text" id="keyword" formControlName="keyWord">
+                            <span matSuffix><mat-icon>search</mat-icon></span>
+                        </mat-form-field>
+                         
+                        <mat-form-field appearance="outline">
+                            <mat-label>Activity</mat-label>
+                            <mat-select required id="activity" formControlName="activity">
+                                <mat-option>-- None --</mat-option>
+                                <mat-option value="option">Option</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        
+                        <mat-form-field appearance="outline">
+                            <mat-label>Destination</mat-label>
+                            <mat-select id="destination" required formControlName="destination">
+                                <mat-option>-- None --</mat-option>
+                                <mat-option value="option">Option</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        
+                        <mat-form-field appearance="outline">
+                            <mat-label>Duration</mat-label>
+                            <mat-select id="duration" required formControlName="duration">
+                                <mat-option>-- None --</mat-option>
+                                <mat-option value="option">Option</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        
+                        <mat-form-field color="accent" appearance="outline">
+                            <mat-label>Date</mat-label>
+                            <input matInput id="date" [matDatepicker]="picker1" formControlName="date">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+                        <button mat-fab type="submit"><mat-icon>search</mat-icon></button>                                      
+                    </form>
+                </div>
+            </div>
+        </mat-card>
+
+        <div class="section-content">
+            <div  class="swiper-container" [swiper]="destinationConfig" >
+                <div class="swiper-wrapper free-flow">                  
+                    <mat-card class="swiper-slide" *ngFor="let item of destinationsData" >                       
+                        <img height="100px" width="100%"  src="../../assets/images/tour/tour_{{item.id}}.jpeg" />
+                        <div class="country-overlay">
+                            <div><h2>Uganda</h2></div>    
+                        </div>                   
+                    </mat-card>                                        
+                </div> 
+                <div class="swiper-overlay"></div>         
+            </div>  
+        </div>          
+    </section>
+
+    <section class="tour-content">
+        <div class="left-content">
+            <mat-card class="tour-card" *ngFor="let item of toursData">                       
+                <img height="400px" width="100%"  src="../../assets/images/tour/tour_{{item.id}}.jpeg" />  
+                
+                <div class="card-overlay">
+                    <mat-chip-list>
+                        <mat-chip color="primary" class="discount-tag"> 20% off</mat-chip>
+                        <mat-chip color="accent" class="status-tag">New</mat-chip>
+                    </mat-chip-list> 
+                    <div class="spacer-3"></div>
+                    <div class="overlay-body">
+                        <div class="rating">
+                            <ngb-rating [(rate)]="currentRate">
+                                <ng-template let-fill="fill" let-index="index">
+                                    <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                                </ng-template>
+                            </ngb-rating>
+                            <span class="reviews">(2 Reviews)</span>
+                        </div>  
+                        <div class="overlay-title">
+                            A toure of the highlands
+                        </div>  
+                        <div class="overlay-text">
+                            6 excursions to the main cities of the country, 
+                            admire the beautiful autum gardens
+                        </div>   
+                    </div>                           
+                    <div class="overlay-footer">  
+                        <mat-icon>schedule</mat-icon>        
+                        <span class="icon-text"> 7 days ago</span>
+                    </div>                
+                </div>
+            </mat-card>         
+        </div>
+        <div class="right-content">
+            <div class="latest-tours">
+                <h3>Latest Tours</h3>       
+                <mat-card *ngFor="let item of latestTourData">
+                    <img height="130px" width="100%"  src="../../assets/images/tour/tour_{{item.id}}.jpeg" />
+                    <mat-card-content>
+                        <div class="tour-info">
+                            <h3>A tour of the islands</h3>
+                            <div class="tour-cost">
+                                <h3>$3,50000</h3>
+                                <h3>$3,800</h3>
+                            </div>
+                            <div>
+                                <mat-icon>schedule</mat-icon>
+                                <h3>7 days</h3>
+                            </div>
+                        </div>
+                    </mat-card-content>                  
+                </mat-card>        
+            </div>
+            <div class="tour-category">
+                <h3>Tour Category</h3>
+                <ul>
+                    <li>Tour Category</li>
+                    <li>Outdoor Activites</li>
+                    <li>City Tours</li>
+                    <li>Cultural & Thematic Tours</li>
+                    <li>Indulgence & Luxury Tours</li>
+                    <li>Family Friendly Tours</li>
+                    <li>Holiday & Seasonal Tours</li>
+                </ul>
+            </div>
+            <div class="recent-articles">
+                <h3>Recent Articles</h3>       
+                <mat-card *ngFor="let item of recentArticleData">
+                    <img height="130px" width="100%"  src="../../assets/images/tour/tour_{{item.id}}.jpg" />
+                    <mat-card-content>
+                        <div class="tour-info">
+                            <h3>Pack wisely before travelling</h3>
+                            <div>
+                                <mat-icon>schedule</mat-icon>
+                                <h3>{{date|date:'medium'}}</h3>
+                            </div>
+                        </div>
+                    </mat-card-content>                  
+                </mat-card>      
+            </div>
+            <div class="question">
+                <h3>Got a Question</h3>
+                <p>
+                    Do not hesitage to give us a call. We are an expert team and we are happy to talk to
+                    you
+                </p>
+                <h1>+256 789 934 060</h1>
+                <h3>info@muggatours.com</h3>
+            </div>
+        </div>
+    </section>
+
+
+</section>

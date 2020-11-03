@@ -1,0 +1,44 @@
+<section class="contact-us">
+    <h1>contact us</h1>
+    <div class="contact-details">
+        <div>
+            <div>
+                <h1><mat-icon>phone_in_talk</mat-icon></h1>
+                <h1>phone</h1>
+            </div>
+            <p>
+                A wonderful serenity has taken possession of my entire 
+                soul, like these
+            </p>
+            <h2>+256 789 934 060</h2>
+        </div>
+        <div>
+            <div>
+                <h1><mat-icon>email</mat-icon></h1>
+                <h1>Email</h1>
+            </div>
+            <p>
+                A wonderful serenity has taken possession of my entire 
+                soul, like these
+            </p>
+            <h2>info@muggatours.com</h2>
+        </div>
+        <div>
+            <div>
+                <h1><mat-icon>location_on</mat-icon></h1>
+                <h1>location</h1>
+            </div>
+           
+            <p>
+                A wonderful serenity has taken possession of my entire 
+                soul, like these
+            </p>
+            <h2>View on Google Map</h2>
+        </div>
+    </div>
+    <div class="map" *ngIf="apiLoaded | async">
+        <google-map height="400px" width="100%" [zoom]="zoom" [center]="center" [options] = "mapOptions" [styles] = "darkStyle"></google-map>
+        <div class="map-overlay"></div>
+    </div>
+</section>
+

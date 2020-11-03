@@ -1,0 +1,67 @@
+<section class="about">
+    <div class="images">
+        <div class="section-header">
+            <div class="sub-header-1">
+                <h1>About Us</h1>
+            </div>
+            <div class="spacer-2"></div>
+            <div class="sub-header-2">
+                <button mat-stroked-button class="prev-1" ><mat-icon>arrow_back</mat-icon></button>
+                <button mat-stroked-button class="next-1" ><mat-icon>arrow_forward</mat-icon></button>
+            </div>            
+        </div>
+        <div  class="swiper-container one" [swiper]="aboutConfig" >
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" *ngFor="let item of aboutData1" >     
+                    <mat-card>                       
+                        <img height="300px" width="100%"  src="../../assets/images/tour/tour_{{item.id}}.jpeg" />                           
+                    </mat-card>                         
+                </div>                     
+            </div>            
+        </div> 
+    </div>
+    <div class="about-details">
+        <div class="description">
+            <h1>Mugga Tours</h1>
+            <p>
+                Curabitur blandit tempus porttitor. Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit. Cras mattis consectetur
+                purus sit amet fermentum. Etiam porta sem malesuada magna
+                mollis euismod. Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit.Maecenas sed diam eget risus varius
+                blandit sit amet non magna. Morbi leo risus, porta ac
+                consectetur ac, vestibulum at eros. Nullam id dolor id
+                nibh ultricies vehicula ut id elit. Donec ullamcorper
+                nulla non metus auctor
+            </p>
+        </div>
+        <div class="stats">
+            <div>
+                <h1>435</h1>
+                <p>People in the team</p>
+            </div>
+            <div>
+                <h1>435</h1>
+                <p>Travels this year</p>
+            </div>
+            <div>
+                <h1>1998</h1>
+                <p>We have been working since</p>
+            </div>
+        </div>
+        <div class="profiles">
+            <h1>Team</h1>
+            <div>
+                <mat-card *ngFor="let item of profileData">
+                    <img src="../../assets/profile/profile_{{item.id}}.jpg"/>
+                    <mat-card-content>
+                        <h1>{{item.name}}</h1>
+                        <h3>{{item.title}}</h3>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            
+        </div>
+    </div>
+</section>
+

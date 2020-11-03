@@ -1,0 +1,138 @@
+@import "../../../global-scss.scss";
+.about{
+    background-color: $color-black;
+     padding-top: 5%;
+      .images{
+          color: $color-white;
+          border: $test-border;
+          .section-header{
+              display: flex;
+              margin: 0% 70px 20px 70px;
+              margin-bottom: 3%;
+              margin-top: 3%;
+              border: $test-border;
+              color: $color-white;
+              .sub-header-1{
+                  border:$test-border;
+                  width: 50%;
+                  h1{              
+                      font-weight: bold;   
+                      font-size: $size-2-5rem           
+                  }
+                  h2{            
+                      
+                      
+                      margin: 0px;
+                  } 
+                  }
+              .sub-header-2{
+                  border:$test-border;  
+                  align-self: flex-end; 
+                  .next-1{       
+                      border: 2px solid $color-white-blure;      
+                      border-radius: 50%;
+                      display: inline-block;
+                      height: 50px;
+                      width: 50px;
+                      padding: 8px;
+                      outline: none;        
+                  }
+                  .prev-1{
+                      border: 2px solid $color-white-blure;
+                      border-radius: 50%;
+                      height: 50px;
+                      width: 50px;
+                      text-align: center;
+                      margin: 0px 30px;
+                      outline: none;
+                  }
+              }
+          }
+        
+          .one{
+              border: $test-border;
+              padding: 2px 0px;
+        
+              mat-card{
+                  padding: 0px;
+                  border-radius: 20px;
+                  outline: none;
+                  img{
+                      border-radius: 20px;
+                      
+                  }          
+              }      
+          }   
+              
+      }
+      .about-details{
+          padding: $size-25px  $size-25px $size-8rem $size-25px;
+          border: $test-border;
+          margin-top: 1rem;
+      }
+      .description{
+          color: $color-white;
+          margin-top: $size-1rem;
+          h1{
+              font-size: $size-2rem;
+              font-weight: bolder;
+              margin-bottom: $size-25px;
+  
+          }
+      }
+      .stats{
+          display: $display-flex;
+          margin-top: $size-2-5rem;
+          div{
+              width: 33.3%;
+              text-align: center;
+              h1{
+                  font-size: $size-8rem;
+                  color: $color-orange-bright;
+                  line-height: 8rem;
+              }
+              p{
+                  font-size: $size-1-5rem;
+                  color: $color-white;
+              }
+          }
+      }
+      .profiles{
+          margin-top: $size-3rem;
+          & > h1{
+              font-size: $size-2-5rem;
+              color: $color-white;
+              font-weight: bold;
+          }
+          & >div{
+              display: $display-flex;
+              justify-content: space-between;
+              margin-top: $size-3rem;
+              mat-card{
+                  padding: 0px;
+                  border-radius: $size-20px;
+                  img{
+                      width: 300px;
+                      height: 300px;
+                      border-radius: $size-20px $size-20px 0px 0px;
+                  }
+                  mat-card-content{
+                      padding: 20px;
+                      h1{
+                          color: $color-black-light;
+                          font-weight: bold;
+                          text-transform: capitalize;
+                      }
+                      h3{
+                          color: $color-silver;
+                          text-transform: capitalize;
+                          line-height: $size-0-5rem;
+                          font-style: italic;
+                          font-weight: normal;
+                      }
+                  }
+              }
+          }
+  
+      }
+  }

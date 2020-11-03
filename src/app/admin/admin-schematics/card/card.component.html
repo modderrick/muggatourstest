@@ -1,0 +1,10 @@
+<mat-card class="card-layout">
+    <div class="card-header">
+        <mat-icon>{{icon}}</mat-icon>
+        <div>{{title | titlecase}}</div>
+    </div>
+   
+    <mat-card-content class="card-layout-content p-2">
+        <ng-content></ng-content>  
+    </mat-card-content> 
+</mat-card>

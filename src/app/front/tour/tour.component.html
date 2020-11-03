@@ -1,0 +1,557 @@
+<div class="main-content">
+    <section class="tour-overview">
+        <div class="tour-overview-overlay">			
+			<svg class="svg-1" xmlns="http://www.w3.org/2000/svg" style="border: 1px solid red;" height="70" width="100" viewBox="0 0 400 400">
+				<path fill="#F1C21B" d="M49.2,-49.7C62.3,-47.6,70.3,-30.7,71.7,-14C73,2.8,67.7,19.4,58.8,33.3C50,47.3,37.7,58.6,24.5,60.6C11.2,62.5,-3.1,55.1,-18.5,49.9C-34,44.7,-50.6,41.8,-53,32.9C-55.5,24,-43.7,9.2,-42.3,-8.9C-40.9,-27,-49.7,-48.5,-44.4,-51.9C-39.1,-55.4,-19.5,-40.9,-0.7,-40C18.1,-39.1,36.1,-51.8,49.2,-49.7Z" transform="translate(100 100)" />
+			</svg>
+			<svg class="svg-2" xmlns="http://www.w3.org/2000/svg" style="border: 1px solid red;" height="200" width="300" viewBox="-60 20 100 100">
+				<path fill="#F1C21B" d="M18,-32.4C25.9,-26.7,36.4,-26.9,36.6,-22.5C36.7,-18.1,26.5,-9,25.9,-0.3C25.3,8.3,34.3,16.7,31.7,16.9C29.1,17,14.9,9.1,7.6,15.2C0.4,21.3,0.2,41.6,-2.2,45.3C-4.5,49.1,-9.1,36.3,-10.3,26.7C-11.4,17.1,-9.3,10.6,-10,6.7C-10.8,2.7,-14.6,1.4,-27,-7.2C-39.4,-15.7,-60.4,-31.3,-64.2,-43.1C-67.9,-54.9,-54.4,-62.8,-40.8,-65.1C-27.2,-67.4,-13.6,-64.2,-4.2,-56.8C5.1,-49.5,10.2,-38,18,-32.4Z" transform="translate(100 100)" />
+			</svg>			
+            <div class="section-header">
+                <div class="sub-header-1">
+                    <div class="rating">
+                        <ngb-rating [(rate)]="currentRate">
+                            <ng-template let-fill="fill" let-index="index">
+                                <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                            </ng-template>
+                        </ngb-rating>
+                        <span class="reviews">(2 Reviews)</span>
+                    </div>  
+                    <h1>Uganda, Kampala</h1>
+                    <div>
+                    <h2> <mat-icon>place</mat-icon>Uganda , Kampala</h2>
+                    </div>
+                </div>
+                <div class="spacer-2"></div>
+                <div class="sub-header-2">
+                    <button mat-raised-button class="action-btn">Book now</button>
+                    <button mat-stroked-button class="prev-1" ><mat-icon>arrow_back</mat-icon></button>
+                    <button mat-stroked-button class="next-1" ><mat-icon>arrow_forward</mat-icon></button>
+                </div>            
+            </div>
+            <div class="section-content">
+                <div  class="swiper-container" [swiper]="config1" >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" *ngFor="let item of tourData1" >     
+                            <mat-card>                       
+                                <img height="300px" width="100%"  src="../../assets/images/tour/tour_{{item.id}}.jpeg" />                           
+                            </mat-card>                         
+                        </div>                     
+                    </div>            
+                </div> 
+                <div class="tour-location">
+                    <div class="site-info">
+                        <p>
+                            Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis 
+                            consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, 
+                            nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi 
+                            porta gravida at eget metus. Donec id elit non mi porta gravida at eget metus. 
+                            Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus mollis interdum.
+                            Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus 
+                            porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel
+                            augue laoreet rutrum.
+                        </p>
+                    </div>
+                    <div class="site-map">                       
+                        <div *ngIf="apiLoaded | async">
+                            <mat-card>
+                             <google-map height="300px" width="100%" [zoom]="zoom" [center]="center" [options] = "mapOptions"></google-map>
+                            </mat-card>
+                        </div>
+                    </div>
+                </div> 
+            </div>   
+        </div>
+    </section>
+    <section class="tour-details">
+        <div class="tour-main-details">
+            <div class="details-header">
+                <h2>Tour details</h2>
+                <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis 
+                    consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi 
+                    erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta 
+                    gravida at eget metus. Donec id elit non mi porta gravida at eget metus
+                </p>
+            </div>
+            <div class="tour-insight">
+                <h3>Tour insight</h3>
+                <div class="insight-list">
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                    <div>
+                        <mat-icon>done</mat-icon>
+                        <span>Picnic</span>
+                    </div>
+                </div>             
+            </div> 
+            <div class="tour-program">
+				<mat-card>
+					<h1>Program</h1>
+				</mat-card>              
+				<mat-accordion class="program-panel" multi>
+					<mat-expansion-panel>
+						<mat-expansion-panel-header>
+							<mat-panel-title>
+								<img mat-card-avatar src="../../assets/images/image_1.jpg" />
+								<h2>Day 1</h2>
+							</mat-panel-title>
+							<mat-panel-description>
+								<h2>Transfer to hotel</h2>
+							</mat-panel-description>
+						</mat-expansion-panel-header>
+						<p>
+							Etiam porta sem malesuada magna mollis euismod. Maecenas
+							sed diam eget risus varius blandit sit amet non magna. 
+							Vivamus sagittis lacus vel augue laoreet rutrum faucibus 
+							dolor auctor
+						</p>                     
+					</mat-expansion-panel>
+					
+					<mat-expansion-panel>
+						<mat-expansion-panel-header>
+							<mat-panel-title>
+								<img mat-card-avatar src="../../assets/images/image_1.jpg" />
+								<h2>Day 2</h2>
+							</mat-panel-title>
+							<mat-panel-description>
+								<h2>site seeing tour</h2>
+							</mat-panel-description>
+						</mat-expansion-panel-header>
+						<p>
+							Etiam porta sem malesuada magna mollis euismod. Maecenas
+							sed diam eget risus varius blandit sit amet non magna. 
+							Vivamus sagittis lacus vel augue laoreet rutrum faucibus 
+							dolor auctor
+						</p>                     
+					</mat-expansion-panel>
+
+					<mat-expansion-panel>
+						<mat-expansion-panel-header>
+							<mat-panel-title>
+								<img mat-card-avatar src="../../assets/images/image_1.jpg" />
+								<h2>Day 3 - 4</h2>
+							</mat-panel-title>
+							<mat-panel-description>
+								<h2>Camp fire night</h2>
+							</mat-panel-description>
+						</mat-expansion-panel-header>
+						<p>
+							Etiam porta sem malesuada magna mollis euismod. Maecenas
+							sed diam eget risus varius blandit sit amet non magna. 
+							Vivamus sagittis lacus vel augue laoreet rutrum faucibus 
+							dolor auctor
+						</p>                     
+					</mat-expansion-panel>
+
+					<mat-expansion-panel>
+						<mat-expansion-panel-header>
+							<mat-panel-title>
+								<img mat-card-avatar src="../../assets/images/image_1.jpg" />
+								<h2>Day 5</h2>
+							</mat-panel-title>
+							<mat-panel-description>
+								<h2>Free time</h2>
+							</mat-panel-description>
+						</mat-expansion-panel-header>
+						<p>
+							Etiam porta sem malesuada magna mollis euismod. Maecenas
+							sed diam eget risus varius blandit sit amet non magna. 
+							Vivamus sagittis lacus vel augue laoreet rutrum faucibus 
+							dolor auctor
+						</p>                     
+					</mat-expansion-panel>
+				</mat-accordion>				
+			</div> 
+			<div class="tour-inclusions">
+				<h1>Included</h1>
+				<div>
+					<div>
+						<mat-icon color="blue">check_circle</mat-icon>
+						<div>
+							<h2>Flight by plane</h2>
+							<p>Flight and transfer to the hotel</p>
+						</div>						
+					</div>
+					<div>
+						<mat-icon color="blue">check_circle</mat-icon>
+						<div>
+						<h2>Wifi</h2>
+						<p>Free wi-fi in the reception, wi-fi in public areas</p>
+						</div>
+					</div>
+					<div>
+						<mat-icon color="blue">check_circle</mat-icon>
+						<div>
+						<h2>Smorgasbord</h2>
+						<p>But i must explain to you how all</p>
+						</div>
+					</div>
+					<div>
+						<mat-icon color="blue">check_circle</mat-icon>
+						<div>
+						<h2>Pool</h2>
+						<p>Beautiful and large swimming pool at your service</p>
+						</div>
+					</div>
+				</div>
+			</div>  
+			<div class="tour-questions">			
+				<h1>Questions</h1>
+				<p>
+					Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non
+					magna. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Etiam porta sem malesuada
+					magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna. Vivamus sagittis
+					lacus vel augue laoreet rutrum faucibus dolor auctor. Etiam porta sem malesuada magna mollis euismod.
+					Maecenas sed diam eget risus varius blandit sit amet non magna. Vivamus sagittis lacus augue laoreet
+					rutrum faucibus dolor auctor.
+				</p>						
+				<mat-accordion class="questions-panel" multi>
+					<mat-expansion-panel>
+						<mat-expansion-panel-header>
+							<mat-panel-title>
+								<div>
+									<mat-icon>help</mat-icon>
+									<h2>Question 1</h2>
+								</div>								
+							</mat-panel-title>
+						</mat-expansion-panel-header>
+						<p>
+							Etiam porta sem malesuada magna mollis euismod. Maecenas
+							sed diam eget risus varius blandit sit amet non magna. 
+							Vivamus sagittis lacus vel augue laoreet rutrum faucibus 
+							dolor auctor
+						</p>                     
+					</mat-expansion-panel>
+					
+					<mat-expansion-panel>
+						<mat-expansion-panel-header>
+							<mat-panel-title>
+								<div>
+									<mat-icon>help</mat-icon>
+									<h2>Question 1</h2>
+								</div>	
+							</mat-panel-title>
+						</mat-expansion-panel-header>
+						<p>
+							Etiam porta sem malesuada magna mollis euismod. Maecenas
+							sed diam eget risus varius blandit sit amet non magna. 
+							Vivamus sagittis lacus vel augue laoreet rutrum faucibus 
+							dolor auctor
+						</p>                     
+					</mat-expansion-panel>
+
+					<mat-expansion-panel>
+						<mat-expansion-panel-header>
+							<mat-panel-title>
+								<div>
+									<mat-icon>help</mat-icon>
+									<h2>Question 1</h2>
+								</div>	
+							</mat-panel-title>
+						</mat-expansion-panel-header>
+						<p>
+							Etiam porta sem malesuada magna mollis euismod. Maecenas
+							sed diam eget risus varius blandit sit amet non magna. 
+							Vivamus sagittis lacus vel augue laoreet rutrum faucibus 
+							dolor auctor
+						</p>                     
+					</mat-expansion-panel>
+
+					<mat-expansion-panel>
+						<mat-expansion-panel-header>
+							<mat-panel-title>
+								<div>
+									<mat-icon>help</mat-icon>
+									<h2>Question 1</h2>
+								</div>	
+							</mat-panel-title>
+						</mat-expansion-panel-header>
+						<p>
+							Etiam porta sem malesuada magna mollis euismod. Maecenas
+							sed diam eget risus varius blandit sit amet non magna. 
+							Vivamus sagittis lacus vel augue laoreet rutrum faucibus 
+							dolor auctor
+						</p>                     
+					</mat-expansion-panel>
+				</mat-accordion>
+			</div> 
+			<div class="related-tours">
+				<div class="section-header">
+					<div class="sub-header-1">
+						<h1>Related tours</h1>
+					</div>
+					<div class="spacer-2"></div>
+					<div class="sub-header-2">
+						<button mat-stroked-button color="white">View all tours</button>
+						<button mat-stroked-button class="prev-3" ><mat-icon>arrow_back</mat-icon></button>
+						<button mat-stroked-button class="next-3" ><mat-icon>arrow_forward</mat-icon></button>
+					</div>            
+				</div>
+				<div class="section-content">
+					<div  class="swiper-container" [swiper]="config0" >
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" *ngFor="let slide of tourData0" >     
+								<mat-card>                       
+									<img height="300px" width="100%"  src="../../assets/images/tour/tour_{{slide.id}}.jpeg" />                           
+								</mat-card>  
+								<div class="card-overlay">
+									<mat-chip-list>
+										<mat-chip color="primary" class="discount-tag"> 20% off</mat-chip>
+										<mat-chip color="accent" class="status-tag">New</mat-chip>
+									</mat-chip-list> 
+									<div class="spacer-3"></div>
+									<div class="overlay-body">
+										<div class="rating">
+											<ngb-rating [(rate)]="currentRate">
+												<ng-template let-fill="fill" let-index="index">
+													<span class="star" [class.filled]="fill === 100">&#9733;</span>
+												  </ng-template>
+											</ngb-rating>
+											<span class="reviews">(2 Reviews)</span>
+										</div>  
+										<div class="overlay-title">
+											A toure of the highlands
+										</div>  
+										<div class="overlay-text">
+											6 excursions to the main cities of the country, 
+											admire the beautiful autum gardens
+										</div>   
+									</div>                           
+									<div class="overlay-footer">  
+										<mat-icon>schedule</mat-icon>         
+										<span class="icon-text"> 7 days ago</span>
+									</div>                
+								</div>
+							</div>                     
+						</div>
+					
+					   
+					</div>  
+				</div>
+			</div>  
+			<div class="tour-form-review">
+				<h1>Write a review</h1>
+				<form [formGroup]="toureReviewForm" class="tour-review-form" [style.fontSize.px]="16">                    
+					<div>
+						<mat-form-field appearance="outline">
+							<mat-label>Full Name</mat-label>
+							<input matInput required type="text" id="full_name" formControlName="fullName">
+						</mat-form-field>
+	
+						<mat-form-field appearance="outline">
+							<mat-label>Email</mat-label>
+							<input matInput required type="email" id="email" formControlName="email">
+							<span matPrefix><mat-icon>email</mat-icon></span>
+						</mat-form-field>
+				  
+						<mat-form-field appearance="outline">
+							<mat-label>Review</mat-label>
+							<textarea required matInput></textarea>
+						</mat-form-field>  
+						<div>
+							<div class="rating">
+								<ngb-rating [(rate)]="reviewRate">
+									<ng-template let-fill="fill" let-index="index">
+										<span class="star" [class.filled]="fill === 100">&#9733;</span>
+									  </ng-template>
+								</ngb-rating>
+							</div> 
+							<div class="spacer-2"></div>
+							<div>
+								<button class="primary-btn"	mat-raised-button type="submit">Submit</button>  
+							</div>							
+						</div>		       
+					</div>								                              
+                </form>
+			</div>  
+			<div class="tour-reviews">
+				<div>
+					<h2>2 Reviews</h2>
+					<div class="rating">				
+						<ngb-rating [(rate)]="reviewRate">
+							<ng-template let-fill="fill" let-index="index">
+								<span class="star" [class.filled]="fill === 100">&#9733;</span>
+							</ng-template>
+						</ngb-rating>
+					</div> 
+				</div>
+				<div>
+					<div>
+						<img height="80px" width="80px" class="round-image" src="../../assets/images/image_3.jpg" />
+					</div>
+					<div>
+						<div>
+							<h2>Derrick Mo</h2>
+							<h3>Individual Traveller</h3>
+						</div>
+						<div>
+							<p>
+								Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, 
+								consectetur adipiscing elit. Cras mattis consectetur purus sit amet 
+								fermentum. Etiam porta sem malesuada magna mollis euismod. Lorem ipsum 
+								dolor sit amet, consectetur adipiscing elit.
+							</p>
+						</div>												
+						<div class="rating">
+							<ngb-rating [(rate)]="reviewRate">
+								<ng-template let-fill="fill" let-index="index">
+									<span class="star" [class.filled]="fill === 100">&#9733;</span>
+								  </ng-template>
+							</ngb-rating>
+							<div>{{date| date:'medium'}}</div>
+						</div> 
+						
+					</div>
+				</div>	
+				
+				<div>
+					<div>
+						<img height="80px" width="80px" class="round-image" src="../../assets/images/image_3.jpg" />
+					</div>
+					<div>
+						<div>
+							<h2>Derrick Mo</h2>
+							<h3>Individual Traveller</h3>
+						</div>
+						<div>
+							<p>
+								Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, 
+								consectetur adipiscing elit. Cras mattis consectetur purus sit amet 
+								fermentum. Etiam porta sem malesuada magna mollis euismod. Lorem ipsum 
+								dolor sit amet, consectetur adipiscing elit.
+							</p>
+						</div>												
+						<div class="rating">
+							<ngb-rating [(rate)]="reviewRate">
+								<ng-template let-fill="fill" let-index="index">
+									<span class="star" [class.filled]="fill === 100">&#9733;</span>
+								  </ng-template>
+							</ngb-rating>
+							<div>{{date| date:'medium'}}</div>
+						</div> 
+						
+					</div>
+				</div>		
+				
+				
+			</div>
+        </div>
+        <div class="tour-side-details">
+            <mat-card>
+				<img src="../../assets/images/tour/tour_1.jpeg" />
+				<div class="card-overlay"></div>
+                <mat-card-content>
+					<div>
+						<mat-chip-list>
+							<mat-chip color="primary" class="discount-tag"> 20% off</mat-chip>
+							<mat-chip color="accent" class="status-tag">New</mat-chip>
+						</mat-chip-list> 
+						<div class="rating">
+							<ngb-rating [(rate)]="currentRate">
+								<ng-template let-fill="fill" let-index="index">
+									<span class="star" [class.filled]="fill === 100">&#9733;</span>
+									</ng-template>
+							</ngb-rating>
+							<span class="reviews">(2 Reviews)</span>
+						</div>  
+						<div>
+							A toure of the highlands
+						</div>                           
+						<div>  
+							<mat-icon>schedule</mat-icon>         
+							<h3 class="icon-text"> 7 days</h3>
+						</div>   
+						<div>
+							<div class="discounted-price">$3,500</div>
+							<div class="original-price">$3,880</div>
+						</div>                  
+						<button mat-raised-button class="primary-btn">Book Now</button>
+					</div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </section>
+</div>
+

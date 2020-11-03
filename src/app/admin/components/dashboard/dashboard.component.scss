@@ -1,0 +1,128 @@
+@import "../../../../global-scss.scss";
+a{
+    color: $color-black-light;
+}
+.active{
+    color: $color-orange-bright;
+}
+.admin-content-main{
+    .header{
+        display: $display-flex;
+    
+        border-bottom: 1px outset $color-white-blure;
+        .bread-crumbs{
+            
+            &> h1{
+                border: $test-border;
+                margin-right: $size-10px;
+                color: $color-black-light;
+            }
+            ul{
+                border: $test-border;
+                list-style-type: none;
+                margin: 0px;
+                padding: 0px;
+                li{
+                    display: inline-block;
+                    a{
+                        display: $display-flex;
+                        vertical-align: bottom;
+                        mat-icon{
+                            vertical-align: middle;
+                            margin: 0px;
+                        }
+                    }
+                }
+            }
+        }
+        .actions{
+            display: $display-flex;
+        }
+    }
+    .summary-cards{
+        margin-top: $size-8px;
+        display: $display-flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        mat-card{
+            padding: 0px;
+            width: 20%;
+           
+          
+            mat-card-header{
+                background-color: #0560acc5;
+                color: $color-white;
+            }
+            mat-card-content{
+                display: $display-flex;
+                padding: $size-20px;
+                background-color: rgba(65, 141, 204, 0.877);
+                color: $color-white;  
+                margin: 0px;           
+                mat-icon{
+                    font-size: 30px;
+                    vertical-align: middle;
+                }
+                div{
+                   flex-grow: 1;
+                   text-align: end;
+                   font-size: 40px;
+                }
+            }
+            .card-footer{
+                text-align: center;
+                background-color: rgba(2, 78, 139, 0.932);
+                a{
+                    color: $color-white;
+                }
+            }
+        }
+    }
+    .statistics{
+        margin-top: 20px;
+      
+        border: 1px solid #ccc;
+        .stat-header{
+            display: $display-flex;
+            align-items: flex-end;
+            border-bottom: 1px outset $color-white-blure;
+            padding: 10px 10px;
+            & >div{
+                font-size: $size-1rem;
+                color: $color-black-light;
+            }
+        }
+        canvas{
+            background-color: $color-white;
+        }
+    }
+    .latest-bookings{
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        .table-header{
+            display: $display-flex;
+            align-items: flex-end;
+            border-bottom: 1px outset $color-white-blure;
+            padding: 10px 10px;
+            & >div{
+                font-size: $size-1rem;
+                color: $color-black-light;
+            }
+
+        }
+        table{
+            width: 100%;
+        }
+    }
+}
+
+//RESPONSIVE CLASSES
+.bread-crumbs-lt-md{
+    &> h1{
+        border: $test-border;
+        margin-right: 0px;;
+    }
+}
+.card-lt-md{
+    margin-bottom: 4px
+}

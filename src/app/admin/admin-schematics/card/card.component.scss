@@ -1,0 +1,18 @@
+@import '../../../../global-scss.scss';
+.card-layout{
+    margin-top: 20px;   
+    border: 1px solid #ccc;
+    padding: 0px;
+    box-shadow: none;
+    .card-header{
+        display: $display-flex;
+        align-items: flex-end;
+        border-bottom: 1px outset $color-white-blure;
+        padding: 10px 10px;
+        & >div{
+            font-size: $size-1rem;
+            color: $color-black-light;
+        }
+
+    }
+}
